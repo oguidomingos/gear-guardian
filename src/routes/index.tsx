@@ -51,12 +51,12 @@ function Nav() {
           <a href="#fluxos" className="hover:text-primary">Fluxos</a>
           <a href="#precos" className="hover:text-primary">Preços</a>
         </nav>
-        <a
-          href="#cta"
+        <Link
+          to="/app"
           className="inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-brand transition hover:opacity-90"
         >
-          Falar com vendas <ArrowRight className="h-4 w-4" />
-        </a>
+          Entrar no app <ArrowRight className="h-4 w-4" />
+        </Link>
       </div>
     </header>
   );
