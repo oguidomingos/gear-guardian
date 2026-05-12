@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppRelatoriosRouteImport } from './routes/app.relatorios'
 import { Route as AppOsRouteImport } from './routes/app.os'
 import { Route as AppManutencaoRouteImport } from './routes/app.manutencao'
 import { Route as AppEquipamentosRouteImport } from './routes/app.equipamentos'
@@ -31,6 +32,11 @@ const IndexRoute = IndexRouteImport.update({
 const AppIndexRoute = AppIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRelatoriosRoute = AppRelatoriosRouteImport.update({
+  id: '/relatorios',
+  path: '/relatorios',
   getParentRoute: () => AppRoute,
 } as any)
 const AppOsRoute = AppOsRouteImport.update({
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/app/equipamentos': typeof AppEquipamentosRoute
   '/app/manutencao': typeof AppManutencaoRoute
   '/app/os': typeof AppOsRoute
+  '/app/relatorios': typeof AppRelatoriosRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRoutesByTo {
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/app/equipamentos': typeof AppEquipamentosRoute
   '/app/manutencao': typeof AppManutencaoRoute
   '/app/os': typeof AppOsRoute
+  '/app/relatorios': typeof AppRelatoriosRoute
   '/app': typeof AppIndexRoute
 }
 export interface FileRoutesById {
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/app/equipamentos': typeof AppEquipamentosRoute
   '/app/manutencao': typeof AppManutencaoRoute
   '/app/os': typeof AppOsRoute
+  '/app/relatorios': typeof AppRelatoriosRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/app/equipamentos'
     | '/app/manutencao'
     | '/app/os'
+    | '/app/relatorios'
     | '/app/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/app/equipamentos'
     | '/app/manutencao'
     | '/app/os'
+    | '/app/relatorios'
     | '/app'
   id:
     | '__root__'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/app/equipamentos'
     | '/app/manutencao'
     | '/app/os'
+    | '/app/relatorios'
     | '/app/'
   fileRoutesById: FileRoutesById
 }
@@ -147,6 +159,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/app/'
       preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/relatorios': {
+      id: '/app/relatorios'
+      path: '/relatorios'
+      fullPath: '/app/relatorios'
+      preLoaderRoute: typeof AppRelatoriosRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/os': {
@@ -193,6 +212,7 @@ interface AppRouteChildren {
   AppEquipamentosRoute: typeof AppEquipamentosRoute
   AppManutencaoRoute: typeof AppManutencaoRoute
   AppOsRoute: typeof AppOsRoute
+  AppRelatoriosRoute: typeof AppRelatoriosRoute
   AppIndexRoute: typeof AppIndexRoute
 }
 
@@ -202,6 +222,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppEquipamentosRoute: AppEquipamentosRoute,
   AppManutencaoRoute: AppManutencaoRoute,
   AppOsRoute: AppOsRoute,
+  AppRelatoriosRoute: AppRelatoriosRoute,
   AppIndexRoute: AppIndexRoute,
 }
 
