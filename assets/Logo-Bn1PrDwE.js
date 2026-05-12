@@ -1,0 +1,1 @@
+import{j as s}from"./index-oRQT9qoR.js";const n="/gear-guardian/assets/logo-D9uUjZwU.png";function t({className:o="h-9 w-9"}){return s.jsx("img",{src:n,alt:"FV — Inventário Audiovisual",className:o+" rounded-sm",loading:"eager"})}export{t as L};

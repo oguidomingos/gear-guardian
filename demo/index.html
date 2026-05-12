@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FV Inventário Demo</title>
+    <style>
+      :root { color-scheme: dark; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(circle at top left, rgba(15,118,110,.28), transparent 30%),
+          linear-gradient(180deg, #020617 0%, #0f172a 100%);
+        color: white;
+        font-family: Inter, system-ui, sans-serif;
+      }
+      main {
+        width: min(1100px, calc(100vw - 32px));
+        padding: 24px;
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(32px, 5vw, 56px);
+        letter-spacing: -0.04em;
+      }
+      p {
+        margin: 0 0 24px;
+        color: rgba(255,255,255,.76);
+        font-size: 18px;
+      }
+      video {
+        width: 100%;
+        border-radius: 24px;
+        border: 1px solid rgba(255,255,255,.12);
+        box-shadow: 0 28px 80px rgba(0,0,0,.38);
+        background: #020617;
+      }
+      a { color: #5eead4; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>FV Inventário Demo</h1>
+      <p>Tour visual com as telas reais do protótipo operacional. <a href="../">Abrir protótipo</a> · <a href="../proposta/">Abrir proposta</a></p>
+      <video controls preload="metadata" src="../media/gear-guardian-demo.mp4"></video>
+    </main>
+  </body>
+</html>

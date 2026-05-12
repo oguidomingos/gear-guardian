@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Proposta · FV Inventário</title>
+    <style>
+      :root {
+        --bg: #07111f;
+        --panel: #0d1727;
+        --card: #111f33;
+        --line: rgba(255, 255, 255, 0.08);
+        --text: #eef2ff;
+        --muted: #b5bfd3;
+        --brand: #1dd3b0;
+        --brand-2: #50a7ff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(29, 211, 176, 0.18), transparent 28%),
+          linear-gradient(180deg, #040b14, var(--bg));
+        color: var(--text);
+      }
+      .wrap { max-width: 1100px; margin: 0 auto; padding: 48px 24px 96px; }
+      .hero, .section, .pricing {
+        background: rgba(13, 23, 39, 0.82);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 32px;
+        margin-bottom: 24px;
+        backdrop-filter: blur(14px);
+      }
+      .eyebrow {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(29, 211, 176, 0.16);
+        color: var(--brand);
+        text-transform: uppercase;
+        letter-spacing: .18em;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      h1 { font-size: clamp(42px, 6vw, 74px); line-height: .96; margin: 22px 0 16px; }
+      h2 { font-size: 32px; margin: 0 0 10px; }
+      p, li { color: var(--muted); line-height: 1.65; }
+      .grid { display: grid; gap: 16px; }
+      .grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 22px;
+      }
+      .metric { font-size: 34px; font-weight: 800; color: white; }
+      .muted-label {
+        font-size: 12px;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .price {
+        font-size: 42px;
+        font-weight: 800;
+      }
+      ul { margin: 14px 0 0; padding-left: 18px; }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 22px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        color: #021018;
+        text-decoration: none;
+        font-weight: 800;
+      }
+      .table-like { display: grid; gap: 14px; }
+      .table-row {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1fr;
+        gap: 16px;
+        padding: 18px 0;
+        border-top: 1px solid var(--line);
+      }
+      .table-row:first-child { border-top: 0; }
+      @media (max-width: 900px) {
+        .grid.cols-4, .grid.cols-3, .grid.cols-2, .table-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <span class="eyebrow">Proposta comercial</span>
+        <h1>FV Inventário</h1>
+        <p>
+          Um software operacional para resolver um problema de uma década:
+          equipamento sem responsável, devolução sem conferência, manutenção sem histórico
+          e prejuízo recorrente por falta de controle.
+        </p>
+        <p>
+          A proposta aqui não é “mais uma planilha bonita”. É uma base operacional para reduzir
+          perdas, aumentar disponibilidade e proteger entregas.
+        </p>
+        <a class="cta" href="#planos">Ver planos e escopo</a>
+      </section>
+
+      <section class="section">
+        <h2>Diagnóstico Atual</h2>
+        <div class="grid cols-4">
+          <div class="card">
+            <div class="muted-label">Perda histórica</div>
+            <div class="metric">10+ anos</div>
+            <p>Operação baseada em memória, planilha e conversa de corredor.</p>
+          </div>
+          <div class="card">
+            <div class="muted-label">Impacto anual</div>
+            <div class="metric">R$ 20k-80k+</div>
+            <p>Somando perdas, atrasos, compra duplicada e manutenção reativa.</p>
+          </div>
+          <div class="card">
+            <div class="muted-label">Gargalo</div>
+            <div class="metric">Sem dono</div>
+            <p>Falta trilha clara de quem pegou, quando saiu, quando voltou e em qual OS.</p>
+          </div>
+          <div class="card">
+            <div class="muted-label">Risco real</div>
+            <div class="metric">Entrega</div>
+            <p>Material indisponível no dia da diária compromete prazo, margem e reputação.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>A Oportunidade</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <div class="muted-label">Problema</div>
+            <p>Controle disperso, conferência lenta e histórico fraco.</p>
+          </div>
+          <div class="card">
+            <div class="muted-label">Solução</div>
+            <p>OS como núcleo da operação, com equipamento, agenda, retirada, devolução e manutenção ligados ao mesmo registro.</p>
+          </div>
+          <div class="card">
+            <div class="muted-label">Resultado</div>
+            <p>Menos perda, mais previsibilidade, menos compra desnecessária e maior confiança para escalar a operação.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>O Que o Software Entrega</h2>
+        <div class="grid cols-2">
+          <div class="card">
+            <div class="muted-label">Fluxo operacional</div>
+            <ul>
+              <li>Cadastro e rastreio de equipamentos com status, garantia e horas de uso.</li>
+              <li>Ordens de serviço com responsável, janela de datas e reserva por disponibilidade.</li>
+              <li>Check-out e devolução com prova por foto e registro de operador.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="muted-label">Governança</div>
+            <ul>
+              <li>Login com senha e restrição a e-mails da empresa.</li>
+              <li>Auditoria completa de criação, edição, aprovação e movimentação.</li>
+              <li>Aprovação administrativa para exclusões sensíveis.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="muted-label">Visibilidade</div>
+            <ul>
+              <li>Calendário operacional por OS.</li>
+              <li>Relatórios de uso, manutenção, atrasos e valor alocado.</li>
+              <li>Fila de e-mails simulados para ações-chave e automações futuras.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="muted-label">Base para evolução</div>
+            <ul>
+              <li>Protótipo persistido no front para validar fluxo de ponta a ponta.</li>
+              <li>Estrutura pronta para migrar para backend e autenticação real.</li>
+              <li>Remotion instalado para demo comercial e treinamento interno.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Impacto Financeiro Esperado</h2>
+        <div class="table-like">
+          <div class="table-row">
+            <div><strong>Perdas e extravios</strong><p>Menos item “sem responsável”.</p></div>
+            <div><strong>Hoje</strong><p>Baixa rastreabilidade.</p></div>
+            <div><strong>Com o software</strong><p>Responsável, OS, horário e evidência.</p></div>
+          </div>
+          <div class="table-row">
+            <div><strong>Compra duplicada</strong><p>Material existe, mas ninguém sabe.</p></div>
+            <div><strong>Hoje</strong><p>Decisão por sensação.</p></div>
+            <div><strong>Com o software</strong><p>Disponibilidade e agenda centralizadas.</p></div>
+          </div>
+          <div class="table-row">
+            <div><strong>Manutenção reativa</strong><p>Conserto só depois da falha.</p></div>
+            <div><strong>Hoje</strong><p>Histórico e garantia dispersos.</p></div>
+            <div><strong>Com o software</strong><p>Alertas, ordens e histórico por item.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pricing" id="planos">
+        <h2>Planos & Preços</h2>
+        <div class="grid cols-2">
+          <div class="card">
+            <div class="muted-label">Referência de mercado</div>
+            <div class="price">R$ 12k-30k+</div>
+            <p>de setup + R$ 800-3.000/mês</p>
+            <ul>
+              <li>Faixa típica para software operacional customizado com controle, rastreio e agenda</li>
+              <li>Normalmente inclui implantação, ajustes, hospedagem e suporte contínuo</li>
+              <li>Valores sobem rápido quando entram autenticação, auditoria, mídia e integrações</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="muted-label">Oferta final</div>
+            <div class="price">R$ 5.000</div>
+            <p>de setup + R$ 199/mês</p>
+            <ul>
+              <li>Implantação inicial do sistema</li>
+              <li>Publicação e operação em um servidor leve</li>
+              <li>Manutenção corretiva para mal funcionamento e ajustes pontuais de estabilidade</li>
+              <li>Custo pensado para viabilizar adoção agora, sem travar a operação em planilha por mais anos</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Próximos Passos</h2>
+        <p>
+          O próximo passo recomendado é validar o protótipo com o time de operação,
+          mapear 3-5 cenários reais de uso e fechar o escopo da versão persistida com backend.
+        </p>
+        <p>
+          Se esse sistema evitar uma única perda relevante, reduzir uma compra duplicada
+          ou garantir uma diária crítica com equipamento certo no lugar certo, ele já se paga.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
