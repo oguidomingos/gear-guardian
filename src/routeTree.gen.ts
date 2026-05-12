@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppOsRouteImport } from './routes/app.os'
 import { Route as AppEquipamentosRouteImport } from './routes/app.equipamentos'
 
 const AppRoute = AppRouteImport.update({
@@ -29,6 +30,11 @@ const AppIndexRoute = AppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppOsRoute = AppOsRouteImport.update({
+  id: '/os',
+  path: '/os',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppEquipamentosRoute = AppEquipamentosRouteImport.update({
   id: '/equipamentos',
   path: '/equipamentos',
@@ -39,11 +45,13 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
   '/app/equipamentos': typeof AppEquipamentosRoute
+  '/app/os': typeof AppOsRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/app/equipamentos': typeof AppEquipamentosRoute
+  '/app/os': typeof AppOsRoute
   '/app': typeof AppIndexRoute
 }
 export interface FileRoutesById {
@@ -51,14 +59,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
   '/app/equipamentos': typeof AppEquipamentosRoute
+  '/app/os': typeof AppOsRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/app' | '/app/equipamentos' | '/app/'
+  fullPaths: '/' | '/app' | '/app/equipamentos' | '/app/os' | '/app/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/app/equipamentos' | '/app'
-  id: '__root__' | '/' | '/app' | '/app/equipamentos' | '/app/'
+  to: '/' | '/app/equipamentos' | '/app/os' | '/app'
+  id: '__root__' | '/' | '/app' | '/app/equipamentos' | '/app/os' | '/app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -89,6 +98,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/os': {
+      id: '/app/os'
+      path: '/os'
+      fullPath: '/app/os'
+      preLoaderRoute: typeof AppOsRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/equipamentos': {
       id: '/app/equipamentos'
       path: '/equipamentos'
@@ -101,11 +117,13 @@ declare module '@tanstack/react-router' {
 
 interface AppRouteChildren {
   AppEquipamentosRoute: typeof AppEquipamentosRoute
+  AppOsRoute: typeof AppOsRoute
   AppIndexRoute: typeof AppIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppEquipamentosRoute: AppEquipamentosRoute,
+  AppOsRoute: AppOsRoute,
   AppIndexRoute: AppIndexRoute,
 }
 
