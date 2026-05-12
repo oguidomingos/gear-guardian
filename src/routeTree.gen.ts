@@ -14,6 +14,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as AppOsRouteImport } from './routes/app.os'
 import { Route as AppEquipamentosRouteImport } from './routes/app.equipamentos'
+import { Route as AppCalendarioRouteImport } from './routes/app.calendario'
 
 const AppRoute = AppRouteImport.update({
   id: '/app',
@@ -40,16 +41,23 @@ const AppEquipamentosRoute = AppEquipamentosRouteImport.update({
   path: '/equipamentos',
   getParentRoute: () => AppRoute,
 } as any)
+const AppCalendarioRoute = AppCalendarioRouteImport.update({
+  id: '/calendario',
+  path: '/calendario',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
+  '/app/calendario': typeof AppCalendarioRoute
   '/app/equipamentos': typeof AppEquipamentosRoute
   '/app/os': typeof AppOsRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/app/calendario': typeof AppCalendarioRoute
   '/app/equipamentos': typeof AppEquipamentosRoute
   '/app/os': typeof AppOsRoute
   '/app': typeof AppIndexRoute
@@ -58,16 +66,30 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
+  '/app/calendario': typeof AppCalendarioRoute
   '/app/equipamentos': typeof AppEquipamentosRoute
   '/app/os': typeof AppOsRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/app' | '/app/equipamentos' | '/app/os' | '/app/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/app/calendario'
+    | '/app/equipamentos'
+    | '/app/os'
+    | '/app/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/app/equipamentos' | '/app/os' | '/app'
-  id: '__root__' | '/' | '/app' | '/app/equipamentos' | '/app/os' | '/app/'
+  to: '/' | '/app/calendario' | '/app/equipamentos' | '/app/os' | '/app'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/app/calendario'
+    | '/app/equipamentos'
+    | '/app/os'
+    | '/app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -112,16 +134,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppEquipamentosRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/calendario': {
+      id: '/app/calendario'
+      path: '/calendario'
+      fullPath: '/app/calendario'
+      preLoaderRoute: typeof AppCalendarioRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
+  AppCalendarioRoute: typeof AppCalendarioRoute
   AppEquipamentosRoute: typeof AppEquipamentosRoute
   AppOsRoute: typeof AppOsRoute
   AppIndexRoute: typeof AppIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppCalendarioRoute: AppCalendarioRoute,
   AppEquipamentosRoute: AppEquipamentosRoute,
   AppOsRoute: AppOsRoute,
   AppIndexRoute: AppIndexRoute,
